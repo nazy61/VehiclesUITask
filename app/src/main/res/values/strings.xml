@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">VehiclesUITask</string>
+    <string name="facebook_app_id">334880217618559</string>
+    <string name="fb_login_protocol_scheme">fb334880217618559</string>
+</resources>
