@@ -1,5 +1,6 @@
 package com.nazycodes.vehiclesuitask;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -33,14 +34,14 @@ public class RegisterWithPhoneNumberActivity extends AppCompatActivity {
 
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
-            public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+            public void onCodeSent(String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                 super.onCodeSent(s, forceResendingToken);
                 verificationCodeBySystem = s;
                 navigateToOTPActivity();
             }
 
             @Override
-            public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
+            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
 
             }
 
@@ -63,6 +64,7 @@ public class RegisterWithPhoneNumberActivity extends AppCompatActivity {
 
     private void sendVerificationCodeToUser(String phoneNo) {
         String number = phoneNo.substring(1);
+
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 "+234" + number,        // Phone number to verify
                 60,                 // Timeout duration
